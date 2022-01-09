@@ -6,7 +6,12 @@ function App() {
 
   const [spinner, setSpinner] = useState(true);
   const [dataTest, setDataTest ] = useState(<></>);
-    const data = (<table>
+   
+  const funcionAsincrona = () => {
+    setSpinner(false);
+  }
+  useEffect(() => {
+     const data = (<table>
       <tr>
       <th> Nombre </th>
       <th> Apellido </ th>
@@ -33,13 +38,10 @@ function App() {
       </ tr>
       </table>)
 
-  const funcionAsincrona = () => {
-    setSpinner(false);
-  }
-   const showData = () => {
-     setDataTest(data);
-    }
-  useEffect(() => {
+    const showData = () => {
+      setDataTest(data);
+     }
+
    
     setTimeout(showData,4000);
     setTimeout(funcionAsincrona,4000)
@@ -48,7 +50,7 @@ function App() {
   return (
     <div>
      {
-     spinner && <Spinner />
+     spinner && <Spinner colorFigure1= 'black' colorFigure2='orange'/>
     }
     {
     !spinner && dataTest}
